@@ -27,7 +27,7 @@ describe("Reentrancy Attack", function () {
 
     // Check initial balance of bank and attacker
     let bankBalance = await bank.getBalance();
-    // let attackerInitialBalance = await reentrancyAttack.getBalance(); // await ethers.provider.getBalance(attacker.getAddress());
+    // let attackerInitialBalance = await reentrancyAttack.getBalance();
     let attackerInitialBalance = await ethers.provider.getBalance(attacker.getAddress());
     console.log("Bank balance before attack:", ethers.formatEther(bankBalance));
     console.log("Attacker balance before attack:", ethers.formatEther(attackerInitialBalance));
@@ -39,7 +39,7 @@ describe("Reentrancy Attack", function () {
     // Check final balance of bank and attacker
     bankBalance = await bank.getBalance();
     let countWithdraw = await reentrancyAttack.connect(attacker).getCountWithdraw();
-    // let attackerFinalBalance = await reentrancyAttack.getBalance(); // await ethers.provider.getBalance(attacker.getAddress());
+    // let attackerFinalBalance = await reentrancyAttack.getBalance();
     let attackerFinalBalance = await ethers.provider.getBalance(attacker.getAddress());
     console.log("Number of times `withdraw` has been called:", countWithdraw);
     console.log("Bank balance after attack:", ethers.formatEther(bankBalance));

