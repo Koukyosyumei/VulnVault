@@ -1,24 +1,62 @@
-# Compiled class file
-*.class
+# Ignore node_modules and build directories
+node_modules/
+build/
+cache/
 
-# Log file
+# Ignore Hardhat specific artifacts and logs
+artifacts/
+coverage/
+coverage.json
+coverage-final.json
+typechain/
+typechain-types/
+
+# Ignore temporary and log files
 *.log
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# BlueJ files
-*.ctxt
+# Ignore environment files
+.env
+.env.local
+.env.*.local
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Ignore editor and OS-specific files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+# Ignore compiled contracts and ABI files
+*.sol.js
+*.abi
+*.bin
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# Ignore dependency graph files
+.graph/
+
+# Ignore Truffle specific files (if any)
+truffle-config.js
+truffle.js
+
+# Ignore Remix IDE settings (if any)
+remix-ide-workspace
+
+# Ignore coverage reports
+coverage/
+
+# Ignore Sphinx documentation
+docs/_build/
+
+# Ignore .husky hooks
+.husky/_/
+.husky/*.sh
+
+# Ignore temporary files created during the test process
+test-*
+
